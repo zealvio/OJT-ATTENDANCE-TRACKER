@@ -1,0 +1,140 @@
+/* 1. Global Modern Technology Theme */
+:root {
+    --bg-dark: #0f0a1e;          /* Deep Purple Black */
+    --card-bg: #1a142e;          /* Dark Purple Card */
+    --primary-purple: #9d50bb;    /* Main Purple */
+    --accent-neon: #6e48aa;      /* Soft Purple Accent */
+    --text-main: #e0e0e0;        /* Light Grey Text */
+    --text-dim: #a0a0a0;         /* Muted Text */
+    
+    /* Status Colors */
+    --worked-glow: #bb86fc;      /* Bright Lavender */
+    --absent-red: #ff4b2b;       /* Tech Red */
+    --rd-grey: #444444;          /* Dim Grey */
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 50% -20%, #2a1b4d 0%, #0f0a1e 80%);
+    color: var(--text-main);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    color: var(--worked-glow);
+    text-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+}
+
+/* 2. Glassmorphism Table Design */
+table {
+    width: 100%;
+    max-width: 1100px;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(157, 80, 187, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Styling */
+th {
+    background-color: rgba(157, 80, 187, 0.1);
+    color: var(--worked-glow);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 20px;
+    border-bottom: 1px solid rgba(157, 80, 187, 0.3);
+    text-align: left;
+}
+
+/* Cell Styling */
+td {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+tr:hover {
+    background-color: rgba(157, 80, 187, 0.05);
+}
+
+/* Column Effects */
+.ref-col { color: var(--worked-glow); font-weight: bold; }
+.log-col { color: var(--text-dim); font-family: 'Courier New', monospace; }
+
+/* 3. Technology Style Dropdowns (Chips) */
+select.chip {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    outline: none;
+    width: 120px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: transparent;
+    color: white;
+}
+
+/* WORKED Badge (Purple Glow) */
+select.worked {
+    background-color: rgba(187, 134, 252, 0.15);
+    border-color: var(--worked-glow);
+    color: var(--worked-glow);
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.2);
+}
+
+/* ABSENT Badge (Cyber Red) */
+select.absent-off {
+    background-color: rgba(255, 75, 43, 0.15);
+    border-color: var(--absent-red);
+    color: var(--absent-red);
+}
+
+/* RD Badge (Dark Tech) */
+select.rd-style {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--rd-grey);
+    color: var(--text-dim);
+}
+
+/* 4. Interactive Text Box Styles */
+.time-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(157, 80, 187, 0.2);
+    border-radius: 4px;
+    color: var(--text-main);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    width: 85px;
+    text-align: center;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.time-input:focus {
+    background: rgba(157, 80, 187, 0.1);
+    border-color: var(--worked-glow);
+    box-shadow: 0 0 5px rgba(187, 134, 252, 0.3);
+}
+
+/* Color Coding for UI Friendliness */
+.time-in { color: #00ff9d !important; }
+.time-out { color: #00d4ff !important; }
+.time-break { color: #a0a0a0 !important; }

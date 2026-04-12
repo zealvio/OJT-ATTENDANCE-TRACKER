@@ -215,15 +215,13 @@ function renderTable() {
         let dayDisplay = (entry.status === "WORKED") ? `Day ${++dutyDayCounter}` : '';
         let statusClass = entry.status === "WORKED" ? 'worked' : (entry.status === "RD" ? 'rd-style' : 'absent-off');
 
-       row.innerHTML = `
+        row.innerHTML = `
             <td class="ref-col">${fullDateDisplay}</td> 
             <td class="ref-col">${dayDisplay}</td>
-            
-            <td class="log-col time-cell" contenteditable="true" onblur="updateData(${index}, 'in', this.innerText)">${entry.in}</td>
-            <td class="log-col time-cell" contenteditable="true" onblur="updateData(${index}, 'bS', this.innerText)">${entry.bS}</td>
-            <td class="log-col time-cell" contenteditable="true" onblur="updateData(${index}, 'bE', this.innerText)">${entry.bE}</td>
-            <td class="log-col time-cell" contenteditable="true" onblur="updateData(${index}, 'out', this.innerText)">${entry.out}</td>
-            
+            <td class="log-col"><input type="text" class="time-input" value="${entry.in}" onchange="updateData(${index}, 'in', this.value)"></td>
+            <td class="log-col"><input type="text" class="time-input" value="${entry.bS}" onchange="updateData(${index}, 'bS', this.value)"></td>
+            <td class="log-col"><input type="text" class="time-input" value="${entry.bE}" onchange="updateData(${index}, 'bE', this.value)"></td>
+            <td class="log-col"><input type="text" class="time-input" value="${entry.out}" onchange="updateData(${index}, 'out', this.value)"></td>
             <td class="res-col" style="white-space: nowrap;">${calculateTotalHours(entry.in, entry.bS, entry.bE, entry.out)}</td>
             <td class="stat-col">
                 <select class="chip ${statusClass}" onchange="updateData(${index}, 'status', this.value)">
@@ -237,7 +235,7 @@ function renderTable() {
         tableBody.appendChild(row);
     });
 
-    updateGrandTotal();
+    
 }
 
 // 6. UPDATE DATA

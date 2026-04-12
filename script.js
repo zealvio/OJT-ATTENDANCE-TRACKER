@@ -238,14 +238,27 @@ function renderTable() {
     
 }
 
-// 6. UPDATE DATA
+// 6. UPDATE DATA (With Auto-Status Detection)
 window.updateData = function(index, field, value) {
     saveHistory();
+    
+    // Format the time if the user is editing a time field
     if (['in', 'bS', 'bE', 'out'].includes(field)) {
         attendanceData[index][field] = formatInputTime(value);
     } else {
         attendanceData[index][field] = value;
     }
+
+    // --- AUTO-DETECT WORKED STATUS ---
+    const row = attendanceData[index];
+    // Check if all four time fields have a value
+    if (row.in && row.bS && row.bE && row.out) {
+        // Only auto-change if it was previously empty
+        if (row.status === "") {
+            row.status = "WORKED";
+        }
+    }
+
     renderTable(); 
 };
 

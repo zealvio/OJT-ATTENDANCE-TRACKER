@@ -142,3 +142,31 @@ select.absent-off { border-color: var(--absent-red); color: var(--absent-red); b
     .grand-total-section { padding: 30px 20px; width: 90%; }
     #total-summary { font-size: 2.5rem; }
 }
+
+/* 2. SMOOTH GLASS TABLE */
+.table-container {
+    border-radius: 20px; 
+    overflow: hidden; 
+}
+
+/* BOLD DAYS COLUMN */
+td.ref-col:nth-child(2) {
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 5px var(--neon-teal);
+}
+
+/* SMOOTH GLOWING INPUT BOXES */
+.time-input {
+    border-radius: 12px;
+}
+
+/* SMOOTH STRETCHED SUMMARY */
+.grand-total-section {
+    border-radius: 30px;
+}
+
+/* STATUS DROPDOWN */
+select.chip {
+    border-radius: 20px;
+}

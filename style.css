@@ -184,3 +184,22 @@ select.absent-off {
     font-weight: 500;
     color: var(--text-main);
 }
+
+/* --- Everything below this is for Mobile --- */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 10px; /* Gives a little breathing room on phone edges */
+    }
+    
+    input, button {
+        width: 100%; /* Makes buttons/inputs easier to tap on a phone */
+        margin-bottom: 10px;
+    }
+}

@@ -234,6 +234,8 @@ function renderTable() {
         `;
         tableBody.appendChild(row);
     });
+
+    updateGrandTotal();
 }
 
 // 6. UPDATE DATA
@@ -248,3 +250,34 @@ window.updateData = function(index, field, value) {
 };
 
 renderTable();
+
+// 7. GRAND TOTAL CALCULATION
+function updateGrandTotal() {
+    let totalMinutes = 0;
+
+    attendanceData.forEach(entry => {
+        // Only calculate if there's an "In" and "Out" time
+        if (entry.in && entry.out) {
+            const timeStr = calculateTotalHours(entry.in, entry.bS, entry.bE, entry.out);
+            
+            // Check if the calculation returned a valid string like "8 Hours, 30 Minutes"
+            if (timeStr !== '--' && timeStr !== '0 Hours, 0 Minutes') {
+                const hourMatch = timeStr.match(/(\d+)\s+Hour/);
+                const minuteMatch = timeStr.match(/(\d+)\s+Minute/);
+                
+                const h = hourMatch ? parseInt(hourMatch[1]) : 0;
+                const m = minuteMatch ? parseInt(minuteMatch[1]) : 0;
+                
+                totalMinutes += (h * 60) + m;
+            }
+        }
+    });
+
+    const finalHours = Math.floor(totalMinutes / 60);
+    const finalMinutes = totalMinutes % 60;
+
+    const summaryElement = document.getElementById('total-summary');
+    if (summaryElement) {
+        summaryElement.innerText = `${finalHours} Hours and ${finalMinutes} Minutes`;
+    }
+}

@@ -203,3 +203,44 @@ select.absent-off {
         margin-bottom: 10px;
     }
 }
+
+/* --- GRAND TOTAL SECTION STYLES --- */
+
+.grand-total-section {
+    margin: 40px auto;
+    padding: 30px;
+    max-width: 600px; /* Keeps it centered and neat */
+    background: #ffffff;
+    border: 3px solid #2c3e50; /* Matches a professional dark blue/grey */
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.grand-total-section h3 {
+    margin: 0;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+#total-summary {
+    font-size: 3rem; /* Very big for impact */
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 10px 0 0 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Make it look good on smartphones */
+@media screen and (max-width: 600px) {
+    #total-summary {
+        font-size: 2rem; /* Slights smaller on phones so it doesn't wrap weirdly */
+    }
+    
+    .grand-total-section {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+}

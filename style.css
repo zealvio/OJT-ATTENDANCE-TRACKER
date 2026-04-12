@@ -301,3 +301,46 @@ select.absent-off {
     }
 }
 
+/* --- UPDATED GRAPHITE MONOCHROME THEME --- */
+
+:root {
+    --main-bg: #f8f9fa;
+    --header-color: #24292e; /* GitHub-style dark grey */
+    --accent-glow: #6366f1;   /* Subdued tech blue-indigo */
+}
+
+body {
+    background-color: var(--main-bg);
+    color: #333;
+}
+
+/* Header style - Modern and Professional */
+h2 {
+    color: var(--header-color);
+    border-bottom: 2px solid #eaecef;
+    padding-bottom: 10px;
+}
+
+/* Updated Grand Total Section - Stretched & Monochromic */
+.grand-total-section {
+    margin: 40px auto;
+    padding: 40px 80px; /* Stretched padding */
+    max-width: 95%; 
+    background-color: #ffffff;
+    border: 2px solid #24292e; /* Dark Graphite outline */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.grand-total-section h3 {
+    color: #6a737d; /* Slate grey subtext */
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+}
+
+#total-summary {
+    color: #24292e; /* Strong Graphite text */
+    font-size: 3.2rem;
+    font-weight: 800;
+}

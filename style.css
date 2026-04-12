@@ -245,38 +245,58 @@ select.absent-off {
     }
 }
 
-/* --- SEAMLESS GRAND TOTAL SECTION --- */
+/* --- MONOCHROME & GLOWING PURPLE THEME --- */
 
 .grand-total-section {
-    margin: 30px auto;
-    padding: 20px;
-    max-width: 90%; /* Matches the width of your table container */
-    background-color: #fcfcfc; /* A very light grey to separate it from the white background */
-    border-top: 2px solid #eeeeee; /* A soft line instead of a heavy box */
-    text-align: right; /* Aligns with the 'Total Hours' column in your table */
+    margin: 50px auto;
+    /* Stretched padding for a more spacious feel */
+    padding: 40px 60px; 
+    max-width: 95%; 
+    
+    /* Monochromatic background - dark grey/black to match a purple theme */
+    background-color: #1a1a1a; 
+    
+    /* The glowing purple outline */
+    border: 2px solid #a855f7; 
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), inset 0 0 10px rgba(168, 85, 247, 0.2);
+    
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Slight lift effect when hovering */
+.grand-total-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
 }
 
 .grand-total-section h3 {
     margin: 0;
-    font-size: 0.85rem;
-    color: #888888;
+    font-size: 1rem;
+    color: #a855f7; /* Purple sub-header */
     text-transform: uppercase;
-    font-weight: 600;
+    letter-spacing: 2px;
+    font-weight: 700;
 }
 
 #total-summary {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #2ecc71; /* Using a green similar to a 'Worked' status to represent progress */
-    margin: 5px 0;
-    font-family: inherit; /* Keeps your existing font */
+    /* Pure white text to pop against the monochrome background */
+    color: #ffffff; 
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-top: 15px;
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+    font-family: 'Inter', sans-serif;
 }
 
-/* Mobile Tweak */
+/* Mobile adjustments to keep the stretch feeling safe */
 @media screen and (max-width: 600px) {
     .grand-total-section {
-        text-align: center; /* Center it on phones for better balance */
-        border: 1px solid #eeeeee;
-        border-radius: 8px;
+        padding: 30px 20px;
+        margin: 30px 15px;
+    }
+    #total-summary {
+        font-size: 2.2rem;
     }
 }

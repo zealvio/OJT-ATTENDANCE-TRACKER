@@ -1,17 +1,17 @@
-/* --- 1. GLOBAL BLUISH-GREEN THEME & VARIABLES --- */
+/* --- 1. DARK TECH GRADIENT THEME --- */
 :root {
-    --bg-light: #f0f4f4;          /* Light Teal Grey */
-    --card-bg: #ffffff;           /* Clean White Card */
-    --midnight-teal: #0d3b3f;     /* Deep Corporate Teal */
-    --accent-teal: #14b8a6;       /* Bright Modern Teal */
-    --text-main: #1f2937;         /* Dark Slate Text */
-    --text-dim: #6b7280;          /* Muted Grey Text */
+    /* Gradient: Deep Navy Blue to Dark Forest Green */
+    --bg-gradient: radial-gradient(circle at center, #0a192f 0%, #051a14 100%);
+    --card-bg: rgba(13, 25, 41, 0.7); /* Translucent Dark Slate */
+    --midnight-teal: #14b8a6;       /* Teal for headers */
+    --accent-blue: #00d4ff;         /* Cyan for tech feel */
+    --text-main: #e2e8f0;           /* Light Grey/White Text */
+    --text-dim: #94a3b8;            /* Muted Slate Text */
     
-    /* Preserved Status Colors */
-    --worked-green: #27ae60;      /* Standard Success Green */
-    --absent-red: #e74c3c;        /* Standard Error Red */
-    --cyan-glow: #00d4ff;         /* Tech Highlight Cyan */
-    --soft-teal-glow: rgba(20, 184, 166, 0.2);
+    /* Status Colors */
+    --worked-green: #00ff9d;        /* Neon Green */
+    --absent-red: #ff4b2b;          /* Neon Red */
+    --soft-glow: rgba(20, 184, 166, 0.3);
 }
 
 html {
@@ -21,7 +21,8 @@ html {
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-light);
+    background: var(--bg-gradient);
+    background-attachment: fixed; /* Keeps gradient still while scrolling */
     color: var(--text-main);
     padding: 40px 20px;
     display: flex;
@@ -32,23 +33,24 @@ body {
 }
 
 h2 {
-    font-weight: 700;
+    font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 5px;
     margin-bottom: 30px;
     color: var(--midnight-teal);
-    border-bottom: 3px solid var(--accent-teal);
-    padding-bottom: 10px;
+    text-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
 }
 
-/* --- 2. TABLE DESIGN --- */
+/* --- 2. GLASSMORPHISM TABLE --- */
 .table-container {
     width: 100%;
     max-width: 1200px;
     overflow-x: auto;
     background: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
 table {
@@ -58,144 +60,19 @@ table {
 }
 
 th {
-    background-color: var(--midnight-teal);
-    color: #ffffff;
+    background-color: rgba(10, 25, 47, 0.9);
+    color: var(--midnight-teal);
     font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     padding: 20px;
     text-align: left;
     position: sticky;
     top: 0;
     z-index: 10;
+    border-bottom: 1px solid rgba(20, 184, 166, 0.2);
 }
 
 td {
     padding: 16px 20px;
-    border-bottom: 1px solid #eee;
-    font-size: 0.95rem;
-    vertical-align: middle;
-}
-
-tr:hover {
-    background-color: rgba(20, 184, 166, 0.03);
-}
-
-/* --- 3. COLUMN STYLING --- */
-.ref-col:first-child { 
-    color: var(--midnight-teal); 
-    font-weight: 700; 
-}
-
-.ref-col:nth-child(2) { 
-    color: var(--accent-teal);
-    font-weight: 800;
-}
-
-/* --- 4. TIME INPUTS (REMAINED COLORS) --- */
-.time-input {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    color: var(--text-main);
-    font-family: monospace;
-    font-size: 0.85rem;
-    padding: 6px 10px;
-    width: 95px;
-    text-align: center;
-    transition: all 0.2s ease;
-}
-
-/* Specific highlight colors for columns */
-td:nth-child(3) .time-input { color: var(--worked-green); border-color: rgba(39, 174, 96, 0.3); }
-td:nth-child(6) .time-input { color: var(--cyan-glow); border-color: rgba(0, 212, 255, 0.3); }
-
-.time-input:focus {
-    border-color: var(--accent-teal);
-    box-shadow: 0 0 8px var(--soft-teal-glow);
-    outline: none;
-}
-
-/* --- 5. STATUS DROPDOWN --- */
-select.chip {
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    background: #fff;
-    border: 1px solid #ddd;
-    width: 110px;
-}
-
-select.worked {
-    background-color: rgba(39, 174, 96, 0.1);
-    border-color: var(--worked-green);
-    color: var(--worked-green);
-}
-
-select.absent-off {
-    background-color: rgba(231, 76, 60, 0.1);
-    border-color: var(--absent-red);
-    color: var(--absent-red);
-}
-
-select.rd-style {
-    background-color: #f3f4f6;
-    color: #6b7280;
-}
-
-/* --- 6. STRETCHED TEAL GRAND TOTAL SECTION --- */
-.grand-total-section {
-    margin: 50px auto;
-    padding: 40px 80px; 
-    width: 95%; 
-    max-width: 1100px;
-    background-color: #ffffff;
-    border: 3px solid var(--midnight-teal);
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 15px 35px var(--soft-teal-glow);
-    transition: transform 0.3s ease;
-}
-
-.grand-total-section:hover {
-    transform: translateY(-5px);
-}
-
-.grand-total-section h3 {
-    margin: 0;
-    font-size: 1.1rem;
-    color: var(--accent-teal); 
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-weight: 700;
-}
-
-#total-summary {
-    color: var(--midnight-teal); 
-    font-size: 3.8rem;
-    font-weight: 900;
-    margin: 15px 0 0 0;
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
-}
-
-/* --- 7. MOBILE RESPONSIVENESS --- */
-@media screen and (max-width: 600px) {
-    body { padding: 10px; }
-    
-    .grand-total-section {
-        padding: 30px 20px;
-        margin: 30px 10px;
-        width: auto;
-    }
-    
-    #total-summary {
-        font-size: 2.5rem;
-    }
-    
-    .time-input {
-        width: 80px;
-        font-size: 0.75rem;
-    }
-}
+    border-bottom: 1px solid rgba(255, 255, 2

@@ -1,59 +1,27 @@
+/* --- 1. GLOBAL BLUISH-GREEN THEME & VARIABLES --- */
+:root {
+    --bg-light: #f0f4f4;          /* Light Teal Grey */
+    --card-bg: #ffffff;           /* Clean White Card */
+    --midnight-teal: #0d3b3f;     /* Deep Corporate Teal */
+    --accent-teal: #14b8a6;       /* Bright Modern Teal */
+    --text-main: #1f2937;         /* Dark Slate Text */
+    --text-dim: #6b7280;          /* Muted Grey Text */
+    
+    /* Preserved Status Colors */
+    --worked-green: #27ae60;      /* Standard Success Green */
+    --absent-red: #e74c3c;        /* Standard Error Red */
+    --cyan-glow: #00d4ff;         /* Tech Highlight Cyan */
+    --soft-teal-glow: rgba(20, 184, 166, 0.2);
+}
+
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 60px; /* Adjust based on your header height */
-}
-
-/* Header Styling */
-th {
-    background-color: #1a142e;    /* Matches --card-bg to prevent transparency while scrolling */
-    color: var(--worked-glow);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 20px;
-    border-bottom: 1px solid rgba(157, 80, 187, 0.3);
-    text-align: left;
-    
-    /* Sticky Header Logic */
-    position: sticky;
-    top: 0;
-    z-index: 10;                  /* Ensures headers stay above the table rows */
-}
-
-/* Ensure the table container handles the rounded corners correctly with sticky headers */
-table {
-    width: 100%;
-    max-width: 1100px;
-    border-collapse: separate;
-    border-spacing: 0;
-    background: var(--card-bg);
-    border-radius: 16px;
-    /* Remove 'overflow: hidden' if it interferes with sticky positioning in some browsers */
-    border: 1px solid rgba(157, 80, 187, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* 1. Global Modern Technology Theme */
-:root {
-    --bg-dark: #0f0a1e;          /* Deep Purple Black */
-    --card-bg: #1a142e;          /* Dark Purple Card */
-    --primary-purple: #9d50bb;    /* Main Purple */
-    --accent-neon: #6e48aa;      /* Soft Purple Accent */
-    --text-main: #e0e0e0;        /* Light Grey Text */
-    --text-dim: #a0a0a0;         /* Muted Text */
-    
-    /* Status Colors */
-    --worked-glow: #bb86fc;      /* Bright Lavender */
-    --absent-red: #ff4b2b;       /* Tech Red */
-    --rd-grey: #444444;          /* Dim Grey */
-    --cyan-accent: #00d4ff;      /* UI Highlight Cyan */
-    --green-accent: #00ff9d;     /* UI Highlight Green */
+    scroll-padding-top: 60px;
 }
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: var(--bg-dark);
-    background-image: radial-gradient(circle at 50% -20%, #2a1b4d 0%, #0f0a1e 80%);
+    background-color: var(--bg-light);
     color: var(--text-main);
     padding: 40px 20px;
     display: flex;
@@ -64,283 +32,170 @@ body {
 }
 
 h2 {
-    font-weight: 300;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     margin-bottom: 30px;
-    color: var(--worked-glow);
-    text-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+    color: var(--midnight-teal);
+    border-bottom: 3px solid var(--accent-teal);
+    padding-bottom: 10px;
 }
 
-/* 2. Glassmorphism Table Design */
-table {
+/* --- 2. TABLE DESIGN --- */
+.table-container {
     width: 100%;
     max-width: 1200px;
-    border-collapse: separate;
-    border-spacing: 0;
+    overflow-x: auto;
     background: var(--card-bg);
     border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(157, 80, 187, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
 }
 
 th {
-    background-color: rgba(157, 80, 187, 0.05);
-    color: var(--text-dim);
-    font-size: 0.7rem;
+    background-color: var(--midnight-teal);
+    color: #ffffff;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 td {
     padding: 16px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid #eee;
     font-size: 0.95rem;
     vertical-align: middle;
 }
 
 tr:hover {
-    background-color: rgba(157, 80, 187, 0.03);
+    background-color: rgba(20, 184, 166, 0.03);
 }
 
-/* 3. Column & Text Effects (Matching Screenshot) */
+/* --- 3. COLUMN STYLING --- */
 .ref-col:first-child { 
-    color: var(--worked-glow); 
+    color: var(--midnight-teal); 
     font-weight: 700; 
-    width: 140px;
 }
 
 .ref-col:nth-child(2) { 
-    color: #7b61ff; /* Electric Purple for Day count */
+    color: var(--accent-teal);
     font-weight: 800;
-    text-shadow: 0 0 8px rgba(123, 97, 255, 0.4);
 }
 
-/* 4. Time Input Boxes */
+/* --- 4. TIME INPUTS (REMAINED COLORS) --- */
 .time-input {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #fff;
+    border: 1px solid #ddd;
     border-radius: 6px;
-    color: var(--text-dim);
-    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    color: var(--text-main);
+    font-family: monospace;
     font-size: 0.85rem;
     padding: 6px 10px;
-    width: 90px;
+    width: 95px;
     text-align: center;
     transition: all 0.2s ease;
 }
 
-/* Specific glowing colors for input types */
-td:nth-child(3) .time-input { color: var(--green-accent); border-color: rgba(0, 255, 157, 0.2); }
-td:nth-child(6) .time-input { color: var(--cyan-accent); border-color: rgba(0, 212, 255, 0.2); }
+/* Specific highlight colors for columns */
+td:nth-child(3) .time-input { color: var(--worked-green); border-color: rgba(39, 174, 96, 0.3); }
+td:nth-child(6) .time-input { color: var(--cyan-glow); border-color: rgba(0, 212, 255, 0.3); }
 
 .time-input:focus {
-    background: rgba(157, 80, 187, 0.1);
-    border-color: var(--worked-glow);
-    box-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
-    color: #fff;
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 8px var(--soft-teal-glow);
+    outline: none;
 }
 
-/* 5. Status Dropdown (Chip) */
+/* --- 5. STATUS DROPDOWN --- */
 select.chip {
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
-    background: transparent;
-    transition: all 0.3s ease;
-    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
     width: 110px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
 }
 
 select.worked {
-    background-color: rgba(123, 97, 255, 0.1);
-    border-color: #7b61ff;
-    color: #b3a4ff;
-    box-shadow: 0 0 12px rgba(123, 97, 255, 0.2);
-}
-
-select.rd-style {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: var(--rd-grey);
-    color: var(--text-dim);
+    background-color: rgba(39, 174, 96, 0.1);
+    border-color: var(--worked-green);
+    color: var(--worked-green);
 }
 
 select.absent-off {
-    background-color: rgba(255, 75, 43, 0.1);
+    background-color: rgba(231, 76, 60, 0.1);
     border-color: var(--absent-red);
     color: var(--absent-red);
 }
 
-/* Result Column Styling */
-.res-col {
-    font-weight: 500;
-    color: var(--text-main);
+select.rd-style {
+    background-color: #f3f4f6;
+    color: #6b7280;
 }
 
-/* --- Everything below this is for Mobile --- */
-
-.table-container {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-@media screen and (max-width: 600px) {
-    body {
-        padding: 10px; /* Gives a little breathing room on phone edges */
-    }
-    
-    input, button {
-        width: 100%; /* Makes buttons/inputs easier to tap on a phone */
-        margin-bottom: 10px;
-    }
-}
-
-/* --- GRAND TOTAL SECTION STYLES --- */
-
-.grand-total-section {
-    margin: 40px auto;
-    padding: 30px;
-    max-width: 600px; /* Keeps it centered and neat */
-    background: #ffffff;
-    border: 3px solid #2c3e50; /* Matches a professional dark blue/grey */
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.grand-total-section h3 {
-    margin: 0;
-    color: #7f8c8d;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-}
-
-#total-summary {
-    font-size: 3rem; /* Very big for impact */
-    font-weight: 800;
-    color: #2c3e50;
-    margin: 10px 0 0 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Make it look good on smartphones */
-@media screen and (max-width: 600px) {
-    #total-summary {
-        font-size: 2rem; /* Slights smaller on phones so it doesn't wrap weirdly */
-    }
-    
-    .grand-total-section {
-        margin: 20px 10px;
-        padding: 20px;
-    }
-}
-
-/* --- MONOCHROME & GLOWING PURPLE THEME --- */
-
+/* --- 6. STRETCHED TEAL GRAND TOTAL SECTION --- */
 .grand-total-section {
     margin: 50px auto;
-    /* Stretched padding for a more spacious feel */
-    padding: 40px 60px; 
-    max-width: 95%; 
-    
-    /* Monochromatic background - dark grey/black to match a purple theme */
-    background-color: #1a1a1a; 
-    
-    /* The glowing purple outline */
-    border: 2px solid #a855f7; 
+    padding: 40px 80px; 
+    width: 95%; 
+    max-width: 1100px;
+    background-color: #ffffff;
+    border: 3px solid var(--midnight-teal);
     border-radius: 20px;
-    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4), inset 0 0 10px rgba(168, 85, 247, 0.2);
-    
     text-align: center;
+    box-shadow: 0 15px 35px var(--soft-teal-glow);
     transition: transform 0.3s ease;
 }
 
-/* Optional: Slight lift effect when hovering */
 .grand-total-section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
 }
 
 .grand-total-section h3 {
     margin: 0;
-    font-size: 1rem;
-    color: #a855f7; /* Purple sub-header */
+    font-size: 1.1rem;
+    color: var(--accent-teal); 
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     font-weight: 700;
 }
 
 #total-summary {
-    /* Pure white text to pop against the monochrome background */
-    color: #ffffff; 
-    font-size: 3.5rem;
+    color: var(--midnight-teal); 
+    font-size: 3.8rem;
     font-weight: 900;
-    margin-top: 15px;
-    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
-    font-family: 'Inter', sans-serif;
+    margin: 15px 0 0 0;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
 }
 
-/* Mobile adjustments to keep the stretch feeling safe */
+/* --- 7. MOBILE RESPONSIVENESS --- */
 @media screen and (max-width: 600px) {
+    body { padding: 10px; }
+    
     .grand-total-section {
         padding: 30px 20px;
-        margin: 30px 15px;
+        margin: 30px 10px;
+        width: auto;
     }
+    
     #total-summary {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
-}
-
-/* --- UPDATED GRAPHITE MONOCHROME THEME --- */
-
-:root {
-    --main-bg: #f8f9fa;
-    --header-color: #24292e; /* GitHub-style dark grey */
-    --accent-glow: #6366f1;   /* Subdued tech blue-indigo */
-}
-
-body {
-    background-color: var(--main-bg);
-    color: #333;
-}
-
-/* Header style - Modern and Professional */
-h2 {
-    color: var(--header-color);
-    border-bottom: 2px solid #eaecef;
-    padding-bottom: 10px;
-}
-
-/* Updated Grand Total Section - Stretched & Monochromic */
-.grand-total-section {
-    margin: 40px auto;
-    padding: 40px 80px; /* Stretched padding */
-    max-width: 95%; 
-    background-color: #ffffff;
-    border: 2px solid #24292e; /* Dark Graphite outline */
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.grand-total-section h3 {
-    color: #6a737d; /* Slate grey subtext */
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
-}
-
-#total-summary {
-    color: #24292e; /* Strong Graphite text */
-    font-size: 3.2rem;
-    font-weight: 800;
+    
+    .time-input {
+        width: 80px;
+        font-size: 0.75rem;
+    }
 }

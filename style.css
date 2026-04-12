@@ -300,3 +300,18 @@ select.absent-off {
         font-size: 2.2rem;
     }
 }
+
+/* Keeps the box look for the new editable cells */
+.time-cell {
+    border: 1px solid #ddd; /* Matches your existing input border */
+    padding: 8px;
+    min-width: 80px;
+    cursor: text;
+    background-color: white;
+}
+
+/* This is the magic part that allows highlighting multiple cells */
+.time-cell::selection {
+    background-color: rgba(168, 85, 247, 0.3); /* A soft purple highlight to match your theme */
+    color: black;
+}
